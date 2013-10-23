@@ -1,0 +1,63 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0300 
+header_name {.h} 
+code_name {.cxx}
+class HolaMundo_Mesh_GUI {open selected
+} {
+  decl {bool quit;} {private local
+  }
+  decl {igstk::View3D::Pointer View;} {public local
+  }
+  decl {igstk::View2D::Pointer View_Image;} {public local
+  }
+  Function {HolaMundo_Mesh_GUI()} {open
+  } {
+    Fl_Window MainWindow {
+      label IGSTK_Mesh_Example open
+      xywh {305 155 975 488} type Double box PLASTIC_THIN_UP_BOX align 33
+      code0 {\#include <FL/fl_Window.H>}
+      code1 {\#include <igstkView3D.h>}
+      code2 {\#include <igstkFLTKWidget.h>}
+      code3 {\#include <igstkView2D.h>} visible
+    } {
+      Fl_Box Display {
+        label Display
+        xywh {10 7 450 436} box FLAT_BOX color 0 selection_color 0 labelcolor 17
+        class {igstk::FLTKWidget}
+      }
+      Fl_Button {} {
+        label Quit
+        callback {this->Quit();}
+        xywh {890 460 64 20}
+      }
+      Fl_Box Display_Image {
+        label {Display Image}
+        xywh {495 7 450 435} box FLAT_BOX color 0 selection_color 0 labelcolor 17
+        class {igstk::FLTKWidget}
+      }
+    }
+    code {this->quit = false;
+this->View = igstk::View3D::New();
+this->View_Image = igstk::View2D::New();
+this->Display->RequestSetView( this->View );
+this->Display_Image->RequestSetView( this->View_Image );} {}
+  }
+  Function {Show()} {open return_type {virtual void}
+  } {
+    code {this->quit = false;
+this->MainWindow->show();
+this->View->RequestStart();
+this->View_Image->RequestStart();} {}
+  }
+  Function {Quit()} {open return_type {virtual void}
+  } {
+    code {this->View->RequestStop();
+this->View_Image->RequestStop();
+this->quit = true;
+this->MainWindow->hide();} {}
+  }
+  Function {HasQuitted()} {open return_type {virtual bool}
+  } {
+    code {return this->quit;} {}
+  }
+} 

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HolaMundoQTGUI</class>
+ <widget class="QMainWindow" name="HolaMundoQTGUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>768</width>
+    <height>557</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>HolaMundoQTGUI</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="Display" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>741</width>
+      <height>451</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TrackerBtn">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>470</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Track</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="QuitBtn">
+    <property name="geometry">
+     <rect>
+      <x>644</x>
+      <y>470</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quit</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>TrackerBtn</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>HolaMundoQTGUI</receiver>
+   <slot>SetTracking(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>503</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>145</x>
+     <y>505</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QuitBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>HolaMundoQTGUI</receiver>
+   <slot>Quit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>661</x>
+     <y>509</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>510</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>SetTracking(bool)</slot>
+  <slot>Quit()</slot>
+ </slots>
+</ui>
